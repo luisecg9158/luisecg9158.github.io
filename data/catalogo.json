@@ -1,0 +1,48 @@
+{
+  "actualizado": "2026-10-04",
+  "moneda": "USD",
+  "productos": [
+    {
+      "id": "EJEMPLO-001",
+      "tipo": "caucho",
+      "nombre": "EJEMPLO - Caucho para carro",
+      "marca": "EJEMPLO",
+      "medida": "205/55 R16",
+      "vehiculo": "carro",
+      "precio": null,
+      "precio_mayor": null,
+      "disponible": true,
+      "destacado": true,
+      "foto": "",
+      "nota": "FILA DE EJEMPLO. No es un producto real. Borrar antes de publicar."
+    },
+    {
+      "id": "EJEMPLO-002",
+      "tipo": "caucho",
+      "nombre": "EJEMPLO - Caucho para camión",
+      "marca": "EJEMPLO",
+      "medida": "11R22.5",
+      "vehiculo": "camion",
+      "precio": null,
+      "precio_mayor": null,
+      "disponible": false,
+      "destacado": false,
+      "foto": "",
+      "nota": "FILA DE EJEMPLO. No es un producto real. Borrar antes de publicar."
+    },
+    {
+      "id": "EJEMPLO-003",
+      "tipo": "bateria",
+      "nombre": "EJEMPLO - Batería para carro",
+      "marca": "EJEMPLO",
+      "medida": "Grupo EJEMPLO",
+      "vehiculo": "carro",
+      "precio": null,
+      "precio_mayor": null,
+      "disponible": true,
+      "destacado": false,
+      "foto": "",
+      "nota": "FILA DE EJEMPLO. No es un producto real. Borrar antes de publicar."
+    }
+  ]
+}

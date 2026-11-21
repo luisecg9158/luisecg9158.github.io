@@ -1,13 +1,13 @@
 /* PIN de entrada mientras la familia revisa el sitio.
    OJO: esto solo frena a visitantes casuales. No es seguridad real: el contenido
    sigue en el codigo de cada pagina. No poner aqui nada privado.
-   El PIN no esta escrito aqui, solo su "huella" (SHA-256 de "corcauchos:" + PIN).
+   El PIN no esta escrito aqui, solo su "huella" (SHA-256 de "corcauchos:" + clave en mayusculas).
    Para cambiar el PIN, calcular la huella nueva y reemplazar HUELLA.
    AL LANZAR EL SITIO: borrar este archivo y la linea <script src="/js/clave.js"> de cada pagina. */
 (function () {
   "use strict";
 
-  var HUELLA = "4a19df1c019b00b678d99cb3a8651c4246decb8aef1c93e6b7520a261864dea8";
+  var HUELLA = "f94e0b112c2f4df0fd7d9b7799ab0dde0dc5b9c91bb324421515f5fc916a0ece";
   var LLAVE = "corcauchos-pin";
 
   function guardado() {
@@ -51,9 +51,9 @@
       '<form novalidate>' +
       '<p class="clave-marca">CORCAUCHOS</p>' +
       '<h1>Sitio en revisión</h1>' +
-      '<p>Esta página todavía no está abierta al público. Escribe el PIN que te dio la familia para entrar.</p>' +
-      '<label for="clave-pin">PIN</label>' +
-      '<input id="clave-pin" type="password" inputmode="numeric" autocomplete="off" maxlength="12" required>' +
+      '<p>Esta página todavía no está abierta al público. Escribe la clave que te dio la familia para entrar.</p>' +
+      '<label for="clave-pin">Clave</label>' +
+      '<input id="clave-pin" type="password" autocomplete="off" autocapitalize="characters" maxlength="20" required>' +
       '<button type="submit">Entrar</button>' +
       '<p class="clave-error" role="alert"></p>' +
       '</form>';
@@ -65,15 +65,15 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var pin = campo.value.trim();
-      if (!pin) { error.textContent = "Escribe el PIN para entrar."; return; }
+      var pin = campo.value.trim().toUpperCase();
+      if (!pin) { error.textContent = "Escribe la clave para entrar."; return; }
       huella(pin).then(function (h) {
         if (h === HUELLA) {
           try { localStorage.setItem(LLAVE, HUELLA); } catch (err) {}
           caja.remove();
           oculto.remove();
         } else {
-          error.textContent = "Ese PIN no es correcto. Revísalo e intenta de nuevo.";
+          error.textContent = "Esa clave no es correcta. Revísala e intenta de nuevo.";
           campo.select();
         }
       });
